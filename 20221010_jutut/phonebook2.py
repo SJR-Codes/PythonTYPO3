@@ -1,7 +1,7 @@
 """
 * Taitotalo Python 10.10.2022
 * phonebook.py
-* description
+* Small phonebook app
 * Created by Samu Reinikainen
 """
 
