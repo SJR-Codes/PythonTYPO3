@@ -36,6 +36,7 @@ def del_number(phonebook: dict) -> None:
         print("Nimeä ei löydy luettelosta!")
 
 def get_action(phonebook: dict) -> None:
+    '''Ask user what to do and do it.'''
     acts = {
         1:{'act':'find_number()', 'show': 'Hae'},
         2:{'act':'add_number()', 'show': 'Lisää'},
