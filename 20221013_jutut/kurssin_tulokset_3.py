@@ -57,12 +57,27 @@ def main():
     koepisteet = get_data("koepisteet.csv")
     #print(opiskelijat)
     #print(tehtavat)
+    sarakkeet = {
+        "nimi": 30,
+        "teht_lkm": 10,
+        "teht_pist": 10,
+        "koe_pist": 10,
+        "yht_pist": 10,
+        "arvos": 10
+    }
+    for x, y in sarakkeet.items():
+        print(f"{x:^{y}}", sep="", end="")
 
-    for id, vals in opiskelijat.items():
-        
-        points = count_points(get_count(tehtavat[id])) + get_count(koepisteet[id])
-        #print(*vals, get_count(tehtavat[id]), get_count(koepisteet[id]), points, grade)
-        print(*vals, count_grade(points))
+    print()
+    for id, vals in opiskelijat.items():        
+        name = vals[0] + " " + vals[1]
+        teht = get_count(tehtavat[id])
+        points = count_points(teht)
+        koep = get_count(koepisteet[id])
+        yht = points + koep
+        arvos = count_grade(yht)
+
+        print(f"{name:30}{teht:<10}{points:<10}{koep:<10}{yht:<10}{arvos:<10}", sep="")
 
 # run blocks of code only if our program is the main program executed
 if __name__ == "__main__":
