@@ -1,4 +1,4 @@
-def tupleFind(a):
+def tupleFind(a: tuple):
     '''Small helper function to sort list with tuples second var'''
     return a[1]
 
