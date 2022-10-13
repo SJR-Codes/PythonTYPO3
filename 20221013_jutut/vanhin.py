@@ -18,6 +18,12 @@ def vanhin(lista: list) -> str:
     new = min(lista, key=tupleFind)
     return(new[0])
 
+def vanhemmat(lista:list, year:int) -> list:
+    '''Returns list of people who are older than given year'''
+    new = [i[0] for i in lista if tupleFind(i) < year]
+    #print(new)
+    return(new)
+
 
 
 h1 = ("Arto", 1977)
@@ -28,3 +34,6 @@ hlista = [h1, h2, h3, h4]
 
 print("Vanhin henkilö: ", vanhin(hlista))
 #vanhin(hlista)
+
+vanhemmat_henkilot = vanhemmat(hlista, 1979)
+print("Vanhemmat henkilöt:", vanhemmat_henkilot)
