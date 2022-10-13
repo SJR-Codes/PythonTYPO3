@@ -1,7 +1,7 @@
 #notes for 13.10.2022
 
 names = []
-
+def mfooain():
     #for _ in range(3):
     name = input("Give name: ")
     foo = input("Foo bar: ")
