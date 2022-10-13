@@ -1,3 +1,7 @@
+def tupleFind(a):
+    '''Small helper function to sort list with tuples second var'''
+    return a[1]
+
 def vanhin(lista: list) -> str:
     '''Find oldest person on tuples-list and return their name'''
 
@@ -7,8 +11,14 @@ def vanhin(lista: list) -> str:
     #return min(new, key=new.get)
 
     #using lambda
-    new = min(lista, key=lambda x: x[1])
+    #new = min(lista, key=lambda x: x[1])
+    #return(new[0])
+
+    #using own func
+    new = min(lista, key=tupleFind)
     return(new[0])
+
+
 
 h1 = ("Arto", 1977)
 h2 = ("Einari", 1985)
