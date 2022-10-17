@@ -66,7 +66,7 @@ def main():
         "arvos": 10
     }
     for x, y in sarakkeet.items():
-        print(f"{x:^{y}}", sep="", end="")
+        print(f"{x:{y}}", sep="", end="")
 
     print()
     for id, vals in opiskelijat.items():        
