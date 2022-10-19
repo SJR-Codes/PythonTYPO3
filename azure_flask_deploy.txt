@@ -1,0 +1,47 @@
+https://learn.microsoft.com/en-us/training/modules/host-a-web-app-with-azure-app-service/
+
+#pip install flask
+
+#alustellaan virtual env
+python3 -m venv venv
+source venv/bin/activate
+
+pip install flask
+
+mkdir ~/*MYOWNApp*
+cd ~/*MYOWNApp*
+
+code application.py
+******************************************
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+    return "<html><body><h1>Hello World!</h1></body></html>\n"
+
+
+******************************************
+
+pip freeze > requirements.txt
+
+******************* OPTIONAL TEST *******************************
+Open a second command shell session in a new browser tab https://shell.azure.com/.
+
+** Primary session:
+export FLASK_APP=application.py
+flask run
+
+** Sec session:
+curl http://127.0.0.1:5000/
+
+******************* END OPTIONAL TEST *******************************
+
+
+export APPNAME=$(az webapp list --query [0].name --output tsv)
+export APPRG=$(az webapp list --query [0].resourceGroup --output tsv)
+export APPPLAN=$(az appservice plan list --query [0].name --output tsv)
+export APPSKU=$(az appservice plan list --query [0].sku.name --output tsv)
+export APPLOCATION=$(az appservice plan list --query [0].location --output tsv)
+
+az webapp up --name $APPNAME --resource-group $APPRG --plan $APPPLAN --sku $APPSKU --location "$APPLOCATION"
